@@ -1,0 +1,83 @@
+package week5.day1;
+
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver.Timeouts;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Automatebuttons {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		/*  Major dependencies
+		 * 1. WebDriver Manager
+		 * 2. Selenium dependency 
+		 * 
+		 * WebDriver Manager
+		 * 1. Chrome
+		 * 2. Safari
+		 * 3. Edge
+		 * 4. Internet explorer 
+		 * 5. Firefox 
+		 */
+		
+		//Precondition 1 - To call a WebDriver
+		
+	//	System.setProperty("webdriver.chrome.driver", "\"C:\\Users\\Public\\Desktop\\Google Chrome.lnk\"");
+		
+		 WebDriverManager.chromedriver().setup();
+		 
+		// WebDriverManager.edgedriver().setup();
+		 
+		//Precondition 2 - Call a chromedriver 
+		 ChromeDriver driver = new ChromeDriver();
+		 
+		 //Implicit wait
+		 Timeouts implicitlyWait = driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		 
+		 //open a browser with url
+		 driver.get("https://demoqa.com");
+		 
+		 //Maximize the window
+		 driver.manage().window().maximize();
+		 
+		 //Click Element text tab 
+		 driver.findElement(By.className("card-up")).click();
+		 
+		//click buttons
+		 
+		 driver.findElement(By.xpath("//span[text()='Buttons']")).click();
+		 
+		 //Actions class - Mouse commands
+
+		 WebElement doublecl = driver.findElement(By.xpath("//button[@id='doubleClickBtn']"));
+		 
+		 Actions mous = new Actions(driver);
+		 
+		 mous.doubleClick(doublecl).perform();
+		 
+		 //Right click
+		 
+		 WebElement rightcl = driver.findElement(By.xpath("//button[@id='rightClickBtn']"));
+		 
+		//button[@id='rightClickBtn']
+		 
+		mous.contextClick(rightcl).perform();
+			 
+	}
+
+}
