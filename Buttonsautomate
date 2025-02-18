@@ -77,6 +77,16 @@ public class Automatebuttons {
 		//button[@id='rightClickBtn']
 		 
 		mous.contextClick(rightcl).perform();
+
+                 //down click
+		 
+	        WebElement down = driver.findElement(By.xpath("//button[@id='rightClickBtn']"));
+		 
+		//button[@id='downclick']
+		 
+		mous.contextClick(downclick).perform();
+
+
 			 
 	}
 
